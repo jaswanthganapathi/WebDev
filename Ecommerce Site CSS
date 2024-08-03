@@ -1,0 +1,662 @@
+#main{
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0px;
+    animation-name: load;
+    animation-duration: 0.2s;
+    animation-timing-function: ease-in-out;
+}
+@keyframes load {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+    
+}
+#header_icon{
+    position: absolute;
+    width: 100px;
+    height: 90px;
+    left: 60px;
+}
+#header{
+    display:flex;
+    gap: 150px;
+    justify-content: space-evenly;
+    background-color:#000000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    height: 100px;
+    margin: 10px;
+    border-top: black;
+    width: 100%;
+
+}
+#searchbar{
+    width: 340px;
+    height: 40px;
+    border-radius: 5px;
+    position: absolute;
+    right: 0;
+}
+#header_left{
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 220px;
+    justify-content: center;
+    width: 70%;
+}
+#header_right{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    gap: 60px;
+    margin-right: 20px;
+    
+}
+.header_elements{
+    text-decoration: none;
+    font-size: larger;
+    cursor: pointer;
+    color: white;
+    font-weight: 400;
+}
+#header_button{
+    width: 100px;
+    height: 50px;
+    border: 1px solid white;
+    color: white;
+    font-size: large;
+    background-color: transparent;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 400;
+}
+#header_left:hover #header{
+    background-color: white;
+}
+#category{
+    display: flex;
+    justify-content: space-around;
+    background-color: white;
+    margin: 10px;
+    height: 100px;
+    padding-top: 10px;
+    padding-bottom: 0px;
+    /* box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1) */
+}
+.category_elements{
+    text-align: center;
+}
+.category_images{
+    width: 70px;
+    height: 60px;
+    text-align: center;
+    cursor: pointer;
+}
+.category_para{
+    margin-top: 0px;
+}
+#scrollbar_container {
+    position: relative;
+    width: 1400px;
+    margin: 40px auto;
+}
+#scrollbar{
+    position: relative;
+    display: flex;
+    width:1400px;
+    height: 480px;
+    margin:40px auto;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+}
+#scrollbar>img{
+    flex: 0 0 auto;
+    width: 100%;
+    height: 100%;
+}
+#scrollbar::-webkit-scrollbar{
+    display: none;
+}
+.scroll-button {
+    position: absolute;
+    top: 50%;
+    /* transform: translateY(-50%); */
+    height: 50px;
+    border-radius: 5px;
+    background-color: white;
+    color: gray;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.scroll-left {
+    left: 0px;
+}
+
+.scroll-right {
+    right: 0px;
+}
+#grid_bar{
+    display: grid;
+    width: 1400px;
+    grid-template-columns: 875px 500px;
+    grid-template-rows: 250px 250px;
+    gap: 30px;
+    grid-template-areas: "block1 block2"
+    "block1 block3";
+    margin: 20px auto 80px auto;
+}
+#mens_fashion{
+    text-align: center;
+    position: relative;
+    display:flex ;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    color: white;
+    grid-area: block1;
+    background-image: url('https://static-ssl.businessinsider.com/image/54fdc12decad042920ceb0c8-800-600/mensinstagram.jp2');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#mens_fashion::after{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+#mens_fashion h1, #mens_fashion p {
+    position: relative;
+    color: #fff;
+    z-index: 2;
+}
+#womens_fashion{
+    text-align: center;
+    position: relative;
+    display:flex ;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    color: white;
+    grid-area:block2;
+    background-image: url('https://img.freepik.com/free-photo/three-young-beautiful-smiling-girls-trendy-summer-casual-jeans-clothes-sexy-carefree-women-posing-positive-models-sunglasses_158538-4730.jpg?size=626&ext=jpg&ga=GA1.1.1141335507.1717718400&semt=ais_user');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#womens_fashion::after{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1; 
+}
+#womens_fashion h1, #womens_fashion p {
+    position: relative;
+    color: #fff;
+    z-index: 2;
+}
+#kids_fashion{
+    text-align: center;
+    position: relative;
+    display:flex ;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    color: white;
+    grid-area: block3;
+    background-image: url('https://st3.depositphotos.com/3917667/18814/i/450/depositphotos_188149652-stock-photo-the-group-of-beautiful-girls.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+#kids_fashion::after{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1; 
+}
+#kids_fashion h1, #kids_fashion p {
+    position: relative;
+    color: #fff;
+    z-index: 2;
+}
+.grid_head{
+    font-size: xx-large;
+    font-weight: bold;
+}
+.grid_para{
+    font-size:large;
+    font-weight: 500;
+}
+.description{
+   display: flex;
+   width:65%;
+   margin: 10px auto 40px auto;
+
+}
+.product_img1{
+    width: 40%;
+    text-align:start;
+    height: 400px;
+    /* margin-left: 20%; */
+}
+.product_img1 >img{
+    height: 350px;
+}
+.product_info1{
+    width: 60%;
+    text-align: start;
+    padding: 10px;
+    line-height: 38px;
+}
+.product_button{
+    width: 150px;
+    height: 50px;
+    background-color:#6495ED;
+    color: white;
+    border-radius: 10px;
+    border: none;
+}
+.product_info2{
+   
+    width: 60%;
+    text-align:start;
+    padding: 10px;
+    line-height: 30px;
+}
+.product_img2{
+    width: 40%;
+    text-align:end;
+    height: 400px;
+}
+.product_img2>img{
+    height: 350px;
+}
+.product_info2>p,h2{
+    text-align: start;
+}
+#to_top{
+    text-align: center;
+    background-color:black;
+    padding: 20px;
+}
+#backtop{
+    text-decoration: none;
+    color: white;
+}
+#footer{
+    display: flex;
+    justify-content:space-evenly;
+    padding-top: 20px;
+    background-color: black;
+    padding-left: 20px;
+    padding-bottom: 20px;
+}
+.footer_links{
+    color: white;
+    text-decoration: none;
+    line-height: 30px;
+    font-size: medium;
+    font-weight: 100;
+}
+.footer_head{
+    color: white;
+    font-size: large;
+}
+hr{
+    width: 100%;
+    color: gray;
+    margin: 0px;
+}
+#footer_end{
+    background-color: black;
+    height: 100px;
+    padding-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+.footerend{
+    width: 110px;
+    height: 90px;
+}
+/* @media (min-width: 768px) {
+    #grid_bar {
+        grid-template-columns: 2fr 1fr;
+        grid-template-rows: auto;
+        grid-template-areas: "block1 block2"
+                             "block1 block3";
+    }
+    #scrollbar {
+        height: 400px;
+    }
+}
+@media (min-width: 1024px) {
+    #header_left {
+        gap: 220px;
+    }
+    #header_right {
+        gap: 60px;
+    }
+    .category_elements {
+        flex: 1 1 10%;
+        margin: 10px;
+    }
+    #scrollbar {
+        height: 480px;
+    }
+} */
+#mobiles1{
+    width: 100%;
+    display: flex;
+    gap: 20px;
+    background-color: whitesmoke;
+}
+.mobile_filter{
+    width: 20%;
+    margin-top: 30px;
+    margin-left: 20px;
+    background-color: white;
+    padding: 20px;
+}
+.mobile_view{
+    width: 70%;
+    padding-left: 20px;
+    margin-top: 30px;
+    background-color: white;
+}
+.mobile_list{
+    width: 100%;
+    display: flex;
+    gap: 30px;
+    background-color: white;
+    padding: 20px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+.mobile_image{
+    width: 170px;
+    height: 250px;
+
+}
+.rating{
+    color:gray;
+    font-size: medium;
+}
+.stars{
+    background-color: #6495ED;
+    border-radius: 5px;
+    margin-right: 5px;
+    padding: 5px;
+    color: white;
+
+}
+.stars:hover{
+    background-color: white;
+    color: black;
+}
+.unordered_list>li{
+    line-height: 30px;
+    font-weight: 300;
+}
+.mobile_price{
+    margin-left: 160px;
+}
+.mobile_price>h2{
+    margin-bottom:5px;
+}
+.mob_off{
+    margin-top: 0;
+    color: #6495ED;
+}
+.mob_cart{
+    background-color: #6495ED;
+    color:white;
+    border: none;
+    height: 30px;
+    padding: 10px;
+    padding-bottom: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.mobile_list:hover .mob_name{
+    color: blue;
+}
+.mob_cart:hover{
+    background-color: white;
+    color: black;
+}
+#signin{
+    width: 280px;
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 10%;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+
+}
+#signup>input{
+    width: 90%;
+}
+#signinbutton{
+    width: 92%;
+    padding: 5px;
+    border-radius: 5px;
+}
+#signinupbutton{
+    width: 92%;
+    padding: 5px;
+    border-radius: 5px;
+}
+#signupbutton{
+    width: 92%;
+    padding: 5px;
+    border-radius: 5px;
+}
+#signup{
+    width: 280px;
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 10%;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    display: none;
+
+}
+#signin>input{
+    width: 90%;
+}
+/* #cartpage{
+    display: none;
+} */
+.cartsec{
+    display: flex;
+    justify-content: space-around;
+    margin: 30px;
+    padding: 20px;
+    align-items: center;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    height: 100px;
+}
+.cartsec:hover h2{
+    color: blue;
+}
+.cartsec:hover h3{
+    color: blue;
+}
+.cartbutton{
+    background-color: #6495ED;
+    padding: 5px;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    width: 100px;
+    cursor: pointer;
+}
+#fashion1{
+    display:none;
+    width: 100%;
+        
+}
+#mens_fash{
+    display: grid;
+    width: 100%;
+    grid-template-columns: 22% 22% 22% 22%;
+    grid-row: 150px 150px;
+    gap: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    justify-content: space-evenly;
+    padding-bottom: 10px;
+    margin-top: 30px;
+    row-gap: 20px;
+
+
+
+}
+#women_fash{
+    display: grid;
+    width: 100%;
+    margin-top: 30px;
+    grid-template-columns: 23% 23% 23% 23%;
+    grid-row: 150px 150px;
+    gap: 10px;
+    justify-content: space-evenly;
+    padding-bottom: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    overflow-x: hidden;
+}
+
+.mfsh_images{
+    width: 35%;
+    height: 150px;
+    margin-bottom: 5px;
+}
+.m_fash{
+    text-align: center;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    position: relative;
+    padding-top: 0;
+
+}
+.mfsh_titles{
+    font-family:Arial, Helvetica, sans-serif;
+    margin-top: 0;
+    margin-bottom: 5px;
+    font-weight: 550;
+}
+.mfsh_descp{
+    margin-top: 0;
+    margin-bottom: 5px;
+    color: gray;
+}
+.mfsh_stars{
+    font-size: larger;
+    margin-top: 0;
+    margin-bottom: 5px;
+    color: #6495ED;
+}
+.mfsh_cartbtn{
+    width: 40%;
+    height: 30px;
+    padding:5px;
+    border-radius: 5px;
+    border: none;
+    margin-top: 0;
+    background-color: #6495ED;
+    color: white;
+    cursor: pointer;
+}
+.mfsh_cartbtn:hover{
+    background-color: white;
+    color: #000000;
+}
+.mfsh_price{
+    font-size: x-large;
+    font-weight: 500;
+    margin-top: 0;
+    margin-bottom: 6px;
+}
+.mfsh_price2{
+    color: gray;
+    font-size: medium;
+    font-weight: 400;
+}
+.mshoe_images{
+    width: 60%;
+    height: 100px;
+}
+.macc_images{
+    width: 40%;
+    height: 120px;
+}
+#fav{
+    position: absolute;
+    top: 0;
+    left: 5px;
+    font-size: x-large;
+    margin: 0;
+}
+#view_more{
+    width: 150px;
+    height: 40px;
+    padding:5px;
+    border-radius: 5px;
+    border: none;
+    margin-top: 10px;
+    background-color: #6495ED;
+    color: white;
+    cursor: pointer;
+    margin-left: 650px;
+    
+}
+#view_more:hover{
+    background-color: white;
+    color: #000000;
+}
+.w_fash{
+    text-align: center;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    position: relative;
+    padding-top: 0;
+}
+.wfsh_images{
+    width: 50%;
+    height: 230px;
+}
+#wview_more{
+    width: 150px;
+    height: 40px;
+    padding:5px;
+    border-radius: 5px;
+    border: none;
+    margin-top: 10px;
+    background-color: #6495ED;
+    color: white;
+    cursor: pointer;
+    margin-left: 670px;
+}
+#wview_more:hover{
+    background-color: white;
+    color: #000000;
+}
