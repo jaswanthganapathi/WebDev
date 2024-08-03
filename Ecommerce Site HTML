@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L-Cart</title>
+    <link rel="icon" href="https://www.freeiconspng.com/thumbs/cart-icon/basket-cart-icon-27.png">
+    <link rel="stylesheet" href="ecommerce.css">
+    <script src="ecommerce.js"></script>
+</head>
+<body id="main">
+    <div id="header" style="margin: 0px;">
+        <div id="header_left">
+            <img id="header_icon" src="Myminilogo.png">
+            <input type="search" id="searchbar" placeholder="search here">
+        </div>
+        <div id="header_right" >
+            <a class="header_elements" href="ecommerce.html">Home</a>
+            <a class="header_elements" href="">Profile</a>
+            <a class="header_elements" href="">Orders</a>
+            <a class="header_elements" onclick="showcart()">Cart</a>
+            <a style="text-decoration: none;" href="ecommercelogin.html"><button id="header_button" onclick="">Logout</button></a>
+        </div>
+    </div>
+    <div id="category">
+        <div class="category_elements"><img class="category_images" id="mobiles" onclick="clickable('mobiles')" src="https://pngimg.com/d/iphone_12_PNG23.png"><h4 class="category_para">Mobiles</h4></div>
+        <div class="category_elements"><img class="category_images" id="grocery" onclick="clickable('grocery')"src="https://www.pngplay.com/wp-content/uploads/7/Grocery-Items-Transparent-Background.png"><h4 class="category_para">Groceries</h4></div>
+        <div class="category_elements"><img class="category_images" id="fashion" onclick="clickable('fashion')"src="https://thumbs.dreamstime.com/b/young-fashion-man-woman-against-white-wall-men-women-posing-camera-33178770.jpg"><h4 class="category_para">Fashion</h4></div>
+        <div class="category_elements"><img class="category_images" id="electronics"onclick="clickable('electronics')" src="https://img.freepik.com/premium-photo/isolated-apple-macbook-pro-laptop-front-view-showcasing-its-retin-white-background-clean_655090-799153.jpg"><h4 class="category_para">Electronics</h4></div>
+        <div class="category_elements"><img class="category_images" id="furniture" onclick="clickable('furniture')" src="https://static.vecteezy.com/system/resources/previews/011/794/199/non_2x/fabric-armchair-soft-cushion-with-metal-leg-3d-rendering-modern-interior-design-for-living-room-free-png.png"><h4 class="category_para">Furniture</h4></div>
+        <div class="category_elements"><img class="category_images" id="Applainces" onclick="clickable('Applainces')" src="https://st.depositphotos.com/1006463/4823/i/450/depositphotos_48234147-stock-photo-3d-render-of-household-appliances.jpg"><h4 class="category_para">Applainces</h4></div>
+        <div class="category_elements"><img class="category_images" id="travel" onclick="clickable('travel')"src="https://t3.ftcdn.net/jpg/02/41/40/42/360_F_241404253_AnqiTmJMQZLqMcifvHzuRfgs0niYOxTO.jpg"><h4 class="category_para">Travel</h4></div>
+        <div class="category_elements"><img class="category_images" id="beauty" onclick="clickable('beauty')" src="https://static.vecteezy.com/system/resources/previews/035/197/725/non_2x/cosmetics-products-transparent-background-fashion-outfit-profucts-png.png"><h4 class="category_para">Beauty</h4></div>
+        <div class="category_elements"><img class="category_images" id="two_wheeler" onclick="clickable('two_wheeler')" src="https://pngfre.com/wp-content/uploads/bike-png-from-pngfre-36.png"><h4 class="category_para">Two Wheeler</h4></div>
+    </div>
+    <div id="scrollbar_container">
+        <button class="scroll-button scroll-left" onclick="ScrollLeft()">&#9664;</button>
+        <button class="scroll-button scroll-right" onclick="scrollRight()">&#9654;</button>
+        <div id="scrollbar">
+            <img class="scroll_images" src="https://i0.wp.com/www.smartprix.com/bytes/wp-content/uploads/2023/01/ultra.png?fit=1920%2C960&ssl=1" alt="">
+            <img class="scroll_images" src="https://media.contra.com/image/upload/jjs228it0kegrzvjj5fl"alt="">
+            <img class="scroll_images" src="https://images.fonearena.com/blog/wp-content/uploads/2023/07/HAMMER-Active-2.0-and-HAMMER-Cyclone-Smartwatch.jpg" alt="">
+            <img class="scroll_images" src="https://www.lakmeindia.com/cdn/shop/files/cushion_matte_sale_page_banner_4d433930-d549-471f-9eaf-c9a710e94d62_900x.jpg?v=1688464435" alt="">
+            <img class="scroll_images" src="https://www.karobargain.com/wp-content/uploads/2022/08/HM-Sales-768x384.png" alt="">
+        </div>
+    </div>
+    <div id="grid_bar">
+        <div id="mens_fashion">
+            <h1 class="grid_head">Men's Fashion</h1>
+            <p class="grid_para"> Men's fashion encompasses a wide range of styles and trends, focusing on clothing, accessories, and grooming tailored to enhance and express masculine aesthetics.</p>
+        </div>
+        <div id="womens_fashion">
+            <h1 class="grid_head">Women's Fashion</h1>
+            <p class="grid_para"> Women's fashion encompasses a wide range of styles and trends, focusing on clothing, accessories, and grooming tailored to enhance.</p>
+        </div>
+        <div id="kids_fashion">
+            <h1 class="grid_head">Kids's Fashion</h1>
+            <p class="grid_para"> Kid's fashion encompasses a wide range of styles and trends, focusing on clothing, accessories, and grooming tailored to enhance.</p>
+
+        </div>
+    </div>
+    <div class="description">
+        <div class="product_img1"><img src="https://img-prd-pim.poorvika.com/cdn-cgi/image/width=500,height=500,quality=75/product/Apple-iphone-15-pro-maxblack-titanium-256gb-Back-Front-View-Image.png"> </div>
+        <div class="product_info1"><h2> Iphone 15 Pro Max</h2>
+        <p>The iPhone 15 Pro Max boasts a stunning design with a durable titanium frame and a vibrant Super Retina XDR display. Powered by the A17 Bionic chip, it delivers unmatched performance and efficiency. Its advanced camera system, featuring ProRAW and ProRes capabilities, takes mobile photography and videography to new heights. With enhanced battery life and 5G connectivity, it ensures you stay connected longer and faster.</p>
+        <button class="product_button">Product Details</button></div>
+    </div>
+    <div class="description">
+        <div class="product_info2"><h2>Sony Bravia XR A90J </h2>
+         <p>The Sony Bravia XR A90J is a flagship OLED TV known for its stunning 4K HDR picture quality and vibrant colors. It features Sony's Cognitive Processor XR for superior image processing and upscaling. With Acoustic Surface Audio+, it delivers immersive sound directly from the screen. This model supports Google TV for easy access to a wide range of streaming services and smart home integration.</p>   
+        <button class="product_button">Product Details</button></div>
+        <div class="product_img2"><img src="https://www.digitaltrends.com/wp-content/uploads/2023/06/Sony-X80K-Series-4K-Google-TV.jpg?fit=720%2C540&p=1"> </div>
+    </div>
+    <div class="description">
+        <div class="product_img1"><img src="https://hammeronline.in/cdn/shop/files/BestHammerScreenTWSEarbuds.webp?v=1713940395"> </div>
+        <div class="product_info1"><h2>Hammer Screen TWS Bluetooth Earbuds</h2>
+        <p>The Hammer Screen TWS Earbuds offer a sleek design with a built-in LCD screen for battery and connection status display. These earbuds provide high-fidelity sound quality, ensuring an immersive audio experience. With touch controls and a comfortable fit, they are perfect for on-the-go listening. Additionally, they boast a long battery life and quick charging capabilities.</p>
+        <button class="product_button">Product Details</button></div>
+    </div>
+    <div id="to_top">
+        <a id="backtop" href="#header"> Back to top</a>
+    </div>
+    <hr style="width: 100%; color: gray;">
+    <div id="footer" loading="lazy">
+        <div class="footer1"><h2 class="footer_head">Get to Know<br>Us </h2>
+        <a class="footer_links" href="">About us</a><br>
+        <a class="footer_links" href="">Careers</a><br>
+        <a class="footer_links" href="">Press Releases</a><br>
+        <a class="footer_links" href="">Amazon Science</a><br>
+        </div>
+        <div class="footer2"><h2 class="footer_head">Connect With Us</h2>
+        <a href="" class="footer_links">Facebook</a><br>
+        <a href="" class="footer_links">Twitter</a><br>
+        <a href="" class="footer_links">Instagram</a></div><br>
+        <div class="footer3">
+            <h2 class="footer_head">Make Money With Us</h2>
+            <a href="" class="footer_links">Sell on Amazon</a><br>
+            <a href="" class="footer_links">Sell under Amazon<br> Accelerator</a><br>
+            <a href="" class="footer_links">Protect and Build Your Brand</a><br>
+            <a href="" class="footer_links">Amazon Global Selling</a><br>
+            <a href="" class="footer_links">Become an Affiliate</a><br>
+            <a href="" class="footer_links">Fulfilment by Amazon</a><br>
+            <a href="" class="footer_links">Advertise Your Products</a><br>
+            <a href="" class="footer_links">Amazon Pay on Merchants</a><br>
+        </div>
+        <div class="footer4">
+            <h2 class="footer_head">Let Us Help You</h2>
+            <a href="" class="footer_links">COVID-19 and Amazon</a><br>
+            <a href="" class="footer_links">Your Account</a><br>
+            <a href="" class="footer_links">Returns Centre</a><br>
+            <a href="" class="footer_links">Recalls and Product Safety<br> Alerts</a><br>
+            <a href="" class="footer_links">100% Purchase Protection</a><br>
+            <a href="" class="footer_links">Amazon App Download</a><br>
+            <a href="" class="footer_links">Help</a><br>
+        </div>
+    </div>
+    <hr>
+    <div id="footer_end">
+        <img class="footerend" src="Myminilogo.png">
+
+    </div>
+    
+    <div id="mobiles1" style="display: none;">
+        <div class="mobile_filter">
+            <!-- <button id="back_btn" style="background-color: black; color: white; border: none;width: 40px;height: 30px;position: absolute;top: 110px;">&#8592;</button> -->
+
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reiciendis quaerat itaque officia voluptates minus, quia nam omnis dolorem saepe inventore? Saepe, quaerat at sint repudiandae ea modi magnam nulla a?</p>
+        </div>
+        <div class="mobile_view">
+            <div class="mobile_list" id="0">
+                <img style="width: 130px; height: 250px; margin-top: 10px;" class="mobile_image" src="https://rukminim2.flixcart.com/image/312/312/kjlrb0w0-0/mobile/m/l/k/10i-m10ix09-mi-original-imafz4rnuqqxpfeg.jpeg?q=70">
+                <div class="mobile_description">
+                    <h3 class="mob_name">Mi 10i (Atlantic blue,128gb) (8gb RAM)</h3>
+                    <p class="rating"><span class="stars">4.6 ☆</span>45,826 Ratings & 3,093 reviews</p>
+                    <ul class="unordered_list">
+                        <li>8 GB RAM | 128 GB ROM</li>
+                        <li>16.94 cm (6.67 inch) Full HD+ Display
+                        </li>
+                        <li>108MP + 8MP + 2MP + 2MP | 16MP Front Camera</li>
+                        <li>4820 mAh Battery</li>
+                        <li>Qualcomm® Snapdragon™ 750G Processor</li>
+                        <li>EMI starting from ₹809/month</li>
+
+                    </ul>
+                </div>
+                <div class="mobile_price">
+                    <h2> ₹ 22,990</h2>
+                    <p class="mob_off"> <s class="rating">₹27,990</s> 17% off</p>
+                    <p style="margin-bottom: 0; font-size:small;">Free delivery</p>
+                    <p style="color: green; font-size: small; margin-top: 0;"> save extra with combo offers </p>
+                    <p>Upto <strong>₹12,000 </strong>Off on excahnge </p>
+                    <button class="mob_cart" onclick="addtocartmob('0')">Add To Cart</button>
+                </div>
+                
+            </div>
+            <hr style="width: 100%; color: gray;">
+            <div class="mobile_list" id="1">
+                <img class="mobile_image" src="https://rukminim2.flixcart.com/image/312/312/xif0q/mobile/a/c/k/-original-imagtc5fuzkvczr7.jpeg?q=70">
+                <div class="mobile_description">
+                    <h3 class="mob_name">Apple iPhone 15 (Pink,128gb)</h3>
+                    <p class="rating"><span class="stars">4.3 ☆</span>40,396 Ratings & 2,563 reviews</p>
+                    <ul class="unordered_list">
+                        <li>128 GB ROM</li>
+                        <li>15.49 cm (6.1 inch) Super retina XDR Display
+                        </li>
+                        <li>48MP + 12MP | 12MP Front Camera</li>
+                        <li>A16 Bionic Chip, 6 Core Processor Processor</li>
+                        <li>No cost EMI starting from ₹11,834/month</li>
+
+                    </ul>
+                </div>
+                <div class="mobile_price">
+                    <h2> ₹ 70,999</h2>
+                    <p class="mob_off"> <s class="rating">₹79,900</s> 11% off</p>
+                    <p style="margin-bottom: 0; font-size:small;">Free delivery</p>
+                    <p style="color: green; font-size: small; margin-top: 0;"> save extra with combo offers </p>
+                    <p>Upto <strong>₹53,000 </strong>Off on excahnge </p>
+                    <button class="mob_cart" onclick="addtocartmob('1')">Add To Cart</button>
+                </div>
+                
+            </div>
+            <hr style="width: 100%; color: gray;">
+            <div class="mobile_list" id="2">
+                <img class="mobile_image" src="https://rukminim2.flixcart.com/image/312/312/xif0q/mobile/h/d/9/-original-imagtc2qzgnnuhxh.jpeg?q=70">
+                <div class="mobile_description">
+                    <h3 class="mob_name">Apple iPhone 15 (black,128gb)</h3>
+                    <p class="rating"><span class="stars">4.6 ☆</span>48,396 Ratings & 3,623 reviews</p>
+                    <ul class="unordered_list">
+                        <li>128 GB ROM</li>
+                        <li>15.49 cm (6.1 inch) Super retina XDR Display
+                        </li>
+                        <li>48MP + 12MP | 12MP Front Camera</li>
+                        <li>A16 Bionic Chip, 6 Core Processor Processor</li>
+                        <li>No cost EMI starting from ₹11,834/month</li>
+
+                    </ul>
+                </div>
+                <div class="mobile_price">
+                    <h2> ₹ 70,999</h2>
+                    <p class="mob_off"> <s class="rating">₹79,900</s> 11% off</p>
+                    <p style="margin-bottom: 0; font-size:small;">Free delivery</p>
+                    <p style="color: green; font-size: small; margin-top: 0;"> save extra with combo offers </p>
+                    <p>Upto <strong>₹53,000 </strong>Off on excahnge </p>
+                    <button class="mob_cart" onclick="addtocartmob('2')">Add To Cart</button>
+                </div>
+                
+            </div>
+            <hr style="width: 100%; color: gray;">
+            <div class="mobile_list" id="3">
+                <img class="mobile_image" src="https://rukminim2.flixcart.com/image/312/312/xif0q/mobile/k/l/l/-original-imagtc5fz9spysyk.jpeg?q=70">
+                <div class="mobile_description">
+                    <h3 class="mob_name">Apple iPhone 15 (blue,128gb)</h3>
+                    <p class="rating"><span class="stars">4.6 ☆</span>45,826 Ratings & 3,093 reviews</p>
+                    <ul class="unordered_list">
+                        <li>128 GB ROM</li>
+                        <li>15.49 cm (6.1 inch) Super retina XDR Display
+                        </li>
+                        <li>48MP + 12MP | 12MP Front Camera</li>
+                        <li>A16 Bionic Chip, 6 Core Processor Processor</li>
+                        <li>No cost EMI starting from ₹11,834/month</li>
+
+                    </ul>
+                </div>
+                <div class="mobile_price">
+                    <h2> ₹ 70,999</h2>
+                    <p class="mob_off"> <s class="rating">₹79,900</s> 11% off</p>
+                    <p style="margin-bottom: 0; font-size:small;">Free delivery</p>
+                    <p style="color: green; font-size: small; margin-top: 0;"> save extra with combo offers </p>
+                    <p>Upto <strong>₹53,000 </strong>Off on excahnge </p>
+                    <button class="mob_cart" onclick="addtocartmob('3')">Add To Cart</button>
+                </div>
+                
+            </div>
+            <hr style="width: 100%; color: gray;">
+            <div class="mobile_list" id="4">
+                <img class="mobile_image" src="https://rukminim2.flixcart.com/image/312/312/l3rmzrk0/mobile/5/k/h/-original-imagetme9qz26q4k.jpeg?q=70">
+                <div class="mobile_description">
+                    <h3 class="mob_name">realme GT Master Edition (Luna <br>White,256gb)</h3>
+                    <p class="rating"><span class="stars">4.4 ☆</span>63,826 Ratings & 6,093 reviews</p>
+                    <ul class="unordered_list">
+                        <li>8 GB RAM | 256 GB ROM</li>
+                        <li>16.33 cm (6.43 inch) Full HD+ Display
+                        </li>
+                        <li>64MP + 8MP + 2MP | 32MP Front Camera</li>
+                        <li>4300 mAh Battery</li>
+                        <li>Qualcomm Snapdragon 778G Processor</li>
+
+                    </ul>
+                </div>
+                <div class="mobile_price">
+                    <h2> ₹ 25,999</h2>
+                    <p class="mob_off"> <s class="rating">₹31,999</s> 18% off</p>
+                    <p style="margin-bottom: 0; font-size:small;">Free delivery</p>
+                    <p style="color: green; font-size: small; margin-top: 0;"> save extra with combo offers </p>
+                    <p>Upto <strong>₹11,000 </strong>Off on excahnge </p>
+                    <button class="mob_cart" onclick="addtocartmob('4')">Add To Cart</button>
+                </div>
+            </div>
+            <hr style="width: 100%; color: gray;">
+            <div class="mobile_list" id="5">
+                <img class="mobile_image" src="https://rukminim2.flixcart.com/image/312/312/xif0q/mobile/x/x/p/105-single-sim-keypad-mobile-phone-with-wireless-fm-radio-ta-original-imahfmf8wsdfzztq.jpeg?q=70">
+                <div class="mobile_description">
+                    <h4 class="mob_name">Nokia 105 Single SIM, Keypad Mobile Phone <br>with Wireless FM Radio  (Terracotta Red)</h4>
+                    <p class="rating"><span class="stars">4.4 ☆</span>63,826 Ratings & 6,093 reviews</p>
+                    <ul class="unordered_list">
+                        <li>32 MB RAM | 32 MB ROM</li>
+                        <li>4.5 cm (1.77 inch) Display
+                        </li>
+                        <li>0MP | 0MP Front Camera
+                        </li>
+                        <li>1000 mAh Battery</li>
+                        <li>SC6531E Processor</li>
+
+                    </ul>
+                </div>
+                <div class="mobile_price">
+                    <h2> ₹ 1,249</h2>
+                    <p class="mob_off"> <s class="rating">₹1,599</s> 21% off</p>
+                    <p style="margin-bottom: 0; font-size:small;">Free delivery</p>
+                    <p style="color: green; font-size: small; margin-top: 0;"> save extra with combo offers </p>
+                    <p>Upto <strong>₹11,000 </strong>Off on excahnge </p>
+                    <button class="mob_cart" onclick="addtocartmob('5')">Add To Cart</button>
+                </div>
+            
+        </div>
+            
+         </div>
+    </div>
+    <div id="cartpage">
+
+    </div>
+    <div id="fashion1">
+        <div id="mens_fash">
+            <div class="m_fash">
+                <p id="fav">❤️</p>
+                <img class="mfsh_images" src="mf1.png">
+                <h3 class="mfsh_titles">Roadster</h3>
+                <p class="mfsh_descp">Men Regular Fit Shirt</p>
+                <p class="mfsh_stars">★★★★★</p>
+                <p class="mfsh_price">₹1,799 <span class="mfsh_price2"> M.R.P:<s>₹2,299</s></span></p>
+                <button class="mfsh_cartbtn" onclick="addtocartfashion('0')">Add to cart</button>
+            </div>
+            <div class="m_fash">
+                <img class="mfsh_images" src="https://m.media-amazon.com/images/I/51vubyODw8L._AC_UL480_FMwebp_QL65_.jpg">
+                <h3 class="mfsh_titles">U-turn</h3>
+                <p class="mfsh_descp">Semi Formal Slim Fit Checkered shirt</p>
+                <p class="mfsh_stars">★★★☆☆</p>
+                <p class="mfsh_price">₹599 <span class="mfsh_price2"> M.R.P:<s>₹999</s></span></p>
+                <button class="mfsh_cartbtn" onclick="addtocartfashion('1')">Add to cart</button>
+            </div>
+            <div class="m_fash">
+                <img class="mfsh_images" src="https://m.media-amazon.com/images/I/51ijIqdJSBL._AC_UL480_FMwebp_QL65_.jpg">
+                <h3 class="mfsh_titles">Louis Philippe</h3>
+                <p class="mfsh_descp">Slim Fit Solid 100% Cotton, Polo T-shirt</p>
+                <p class="mfsh_stars">★★★★★</p>
+                <p class="mfsh_price">₹999 <span class="mfsh_price2"> M.R.P:<s>₹1399</s></span></p>
+                <button class="mfsh_cartbtn" onclick="addtocartfashion('2')">Add to cart</button>
+            </div>
+            <div class="m_fash">
+                <img class="mfsh_images" src="https://m.media-amazon.com/images/I/61LbbOemKBL._AC_UL480_FMwebp_QL65_.jpg">
+                <h3 class="mfsh_titles">Lymio</h3>
+                <p class="mfsh_descp">mens cargo pants cotton</p>
+                <p class="mfsh_stars">★★★☆☆</p>
+                <p class="mfsh_price">₹999 <span class="mfsh_price2"> M.R.P:<s>₹1,399</s></span></p>
+                <button class="mfsh_cartbtn" onclick="addtocartfashion('3')">Add to cart</button>
+            </div>
+            <div class="m_fash">
+                <img class="mshoe_images" src="https://m.media-amazon.com/images/I/71xlzzUl6aL._AC_UL480_FMwebp_QL65_.jpg">
+                <h3 class="mfsh_titles">Nike</h3>
+                <p class="mfsh_descp">
+                    Mens Full Force LoRunning Shoe
+                     </p>
+                <p class="mfsh_stars">★★★★★</p>
+                <p class="mfsh_price">₹4,572 <span class="mfsh_price2"> M.R.P:<s>₹6,999</s></span></p>
+                <button class="mfsh_cartbtn" onclick="addtocartshoe('0')">Add to cart</button>
+            </div>
+            <div class="m_fash">
+                <img class="mshoe_images" src="https://m.media-amazon.com/images/I/61UAb0KM2aL._AC_UL480_FMwebp_QL65_.jpg">
+                <h3 class="mfsh_titles">Puma</h3>
+                <p class="mfsh_descp">
+                    Mens Black-White-Glacial Gray Sneaker                      </p>
+                <p class="mfsh_stars">★★★★★</p>
+                <p class="mfsh_price">₹3,199 <span class="mfsh_price2"> M.R.P:<s>₹4,599</s></span></p>
+                <button class="mfsh_cartbtn" onclick="addtocartshoe('1')">Add to cart</button>
+            </div>
+            <div class="m_fash">
+                <p id="fav">❤️</p>
+                <img class="macc_images" src="https://m.media-amazon.com/images/I/61OPeMngV2L._AC_UL480_FMwebp_QL65_.jpg">
+                <h3 class="mfsh_titles">Puma</h3>
+                <p class="mfsh_descp">
+                    Unisex-Adult Big Cat Wallet, Chocolate    </p>            
+                <p class="mfsh_stars">★★★★★</p>
+                <p class="mfsh_price">₹1,800 <span class="mfsh_price2"> M.R.P:<s>₹2,699</s></span></p>
+                <button class="mfsh_cartbtn" onclick="addtocartacc('0')">Add to cart</button>
+            </div>
+            <div class="m_fash">
+                <img class="macc_images" src="https://m.media-amazon.com/images/I/51bRPXM5o0L._AC_UL480_FMwebp_QL65_.jpg">
+                <h3 class="mfsh_titles">Jack and Jones</h3>
+                <p class="mfsh_descp">
+                    Men's Baseball Cap   </p>            
+                <p class="mfsh_stars">★★★★☆</p>
+                <p class="mfsh_price">₹899 <span class="mfsh_price2"> M.R.P:<s>₹1,099</s></span></p>
+                <button class="mfsh_cartbtn" onclick="addtocartacc('1')">Add to cart</button>
+            </div>
+            <button id="view_more">View More</button>
+        </div>
+        <div id="women_fash">
+            <div class="w_fash">
+                <img class="wfsh_images" src="wf1.png">
+                <h3 class="mfsh_titles">KALINI</h3>
+                <p class="mfsh_descp">
+                    Floral Printed Anarkali Pure Cotton Kurta with Trousers & With Dupatta   </p>            
+                <p class="mfsh_stars">★★★★☆</p>
+                <p class="mfsh_price">₹1,999 <span class="mfsh_price2"> M.R.P:<s>₹3,999</s></span></p>
+                <button class="mfsh_cartbtn" onclick="addtocartfashion('4')">Add to cart</button>
+            </div>
+            <div class="w_fash">
+                <img class="wfsh_images" src="wf2.png">
+                <h3 class="mfsh_titles">Sangria</h3>
+                <p class="mfsh_descp">
+                    Blue Printed Gotta Patti Pure Cotton Empire A-Line Kurta with Trousers & Dupatta   </p>            
+                <p class="mfsh_stars">★★★★☆</p>
+                <p class="mfsh_price">₹1,719 <span class="mfsh_price2"> M.R.P:<s>₹2,159</s></span></p>
+                <button class="mfsh_cartbtn" onclick="addtocartfashion('5')">Add to cart</button>
+            </div>
+            <div class="w_fash">
+                <img class="wfsh_images" src="wf3.png">
+                <h3 class="mfsh_titles">Anouk</h3>
+                <p class="mfsh_descp">
+                    Navy Blue Ethnic Motifs Printed Pure Cotton Anarkali Kurta & Trouser With Dupatta   </p>            
+                <p class="mfsh_stars">★★★★☆</p>
+                <p class="mfsh_price">₹1,999 <span class="mfsh_price2"> M.R.P:<s>₹2,999</s></span></p>
+                <button class="mfsh_cartbtn" onclick="addtocartfashion('6')">Add to cart</button>
+            </div>
+            <div class="w_fash">
+                <img class="wfsh_images" src="wf4.png">
+                <h3 class="mfsh_titles">Anouk</h3>
+                <p class="mfsh_descp">
+                    Ethnic Motifs Printed Gotta Patti Pure Cotton Kurta With Trousers & Dupatta   </p>            
+                <p class="mfsh_stars">★★★★☆</p>
+                <p class="mfsh_price">₹1,899 <span class="mfsh_price2"> M.R.P:<s>₹2,999</s></span></p>
+                <button class="mfsh_cartbtn" onclick="addtocartfashion('7')">Add to cart</button>
+            </div>
+            <div class="w_fash">
+                <img class="wfsh_images" src="https://m.media-amazon.com/images/I/71CZzNC1hqL._SY695_.jpg">
+                <h3 class="mfsh_titles">Nike</h3>
+                <p class="mfsh_descp">
+                    Womens Court Vision Lo NnSneaker   </p>            
+                <p class="mfsh_stars">★★★★★</p>
+                <p class="mfsh_price">₹3,949 <span class="mfsh_price2"> M.R.P:<s>₹4,965</s></span></p>
+                <button class="mfsh_cartbtn" onclick="addtocartshoe('2')">Add to cart</button>
+            </div>
+            <div class="w_fash">
+                <img class="wfsh_images" src="https://m.media-amazon.com/images/I/51V755DwNnL._AC_UL480_FMwebp_QL65_.jpg">
+                <h3 class="mfsh_titles">Nowry</h3>
+                <p class="mfsh_descp">
+                    Women Stylish Flats Fashion Sandal For Party  </p>            
+                <p class="mfsh_stars">★★★★★</p>
+                <p class="mfsh_price">₹399 <span class="mfsh_price2"> M.R.P:<s>₹899</s></span></p>
+                <button class="mfsh_cartbtn" onclick="addtocartshoe('3')">Add to cart</button>
+            </div>
+            <div class="w_fash">
+                <img class="wfsh_images" src="https://m.media-amazon.com/images/I/81YXsQzGPpL._AC_UL480_FMwebp_QL65_.jpg">
+                <h3 class="mfsh_titles">YouBella</h3>
+                <p class="mfsh_descp">
+                    Earrings for Women Jewellery Earrings Afghani Jhumka  </p>            
+                <p class="mfsh_stars">★★★★★</p>
+                <p class="mfsh_price">₹219 <span class="mfsh_price2"> M.R.P:<s>₹399</s></span></p>
+                <button class="mfsh_cartbtn" onclick="addtocartacc('2')">Add to cart</button>
+            </div>
+            <div class="w_fash">
+                <img class="wfsh_images" src="https://m.media-amazon.com/images/I/61YMwinMDpL._AC_UL480_FMwebp_QL65_.jpg">
+                <h3 class="mfsh_titles">Shining Diva Fashion</h3>
+                <p class="mfsh_descp">
+                    Latest Stylish Crystal Clover Rose Gold Bracelet for Women  </p>            
+                <p class="mfsh_stars">★★★★★</p>
+                <p class="mfsh_price">₹259 <span class="mfsh_price2"> M.R.P:<s>₹399</s></span></p>
+                <button class="mfsh_cartbtn" onclick="addtocartacc('3')">Add to cart</button>
+            </div>
+            <button id="wview_more">View More</button>
+        </div>
+    </div>
+    
+</body>
+</html>
