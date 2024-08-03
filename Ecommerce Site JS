@@ -1,0 +1,135 @@
+function ScrollLeft() {
+    const scrollbar = document.getElementById('scrollbar');
+    scrollbar.scrollBy({
+        left: -1400, 
+        behavior: 'smooth'
+    });
+}
+
+function scrollRight() {
+    const scrollbar = document.getElementById('scrollbar');
+    scrollbar.scrollBy({
+        left: 1400, 
+        behavior: 'smooth'
+    });
+}
+function clickable(item){
+    var a=document.getElementById(item+'1');
+    if(item==='mobiles'){
+        a.style.display="flex";
+    }
+    else{
+        a.style.display='block';
+    }
+    document.getElementById('category').style.display='none';
+    document.getElementById('scrollbar_container').style.display='none';
+    document.getElementById('grid_bar').style.display='none';
+    var b=document.getElementsByClassName('description');
+    Array.from(b).forEach(function(val){
+        val.style.display='none';
+    });
+    document.getElementById('to_top').style.display='none';
+    document.getElementById('footer').style.display='none';
+    document.getElementById('footer_end').style.display='none';
+
+}
+var mob_details=[{
+    src:"https://rukminim2.flixcart.com/image/312/312/kjlrb0w0-0/mobile/m/l/k/10i-m10ix09-mi-original-imafz4rnuqqxpfeg.jpeg?q=70",
+    name:"Mi 10i (Atlantic blue,128gb) (8gb RAM)",
+    price:"₹22,990"
+},
+{
+    src:"https://rukminim2.flixcart.com/image/312/312/xif0q/mobile/a/c/k/-original-imagtc5fuzkvczr7.jpeg?q=70",
+    name:"Apple iPhone 15 (Pink,128gb)",
+    price:"₹70,900"
+},
+{
+    src:"https://rukminim2.flixcart.com/image/312/312/xif0q/mobile/h/d/9/-original-imagtc2qzgnnuhxh.jpeg?q=70",
+    name:"Apple iPhone 15 (black,128gb)",
+    price:"₹70,900"
+},
+{
+    src:"https://rukminim2.flixcart.com/image/312/312/xif0q/mobile/k/l/l/-original-imagtc5fz9spysyk.jpeg?q=70",
+    name:"Apple iPhone 15 (blue,128gb)",
+    price:"₹70,900"
+},
+{
+    src:"https://rukminim2.flixcart.com/image/312/312/l3rmzrk0/mobile/5/k/h/-original-imagetme9qz26q4k.jpeg?q=70",
+    name:"realme GT Master Edition (Luna White,256gb)",
+    price:"₹25,999"
+},
+{
+    src:"https://rukminim2.flixcart.com/image/312/312/xif0q/mobile/x/x/p/105-single-sim-keypad-mobile-phone-with-wireless-fm-radio-ta-original-imahfmf8wsdfzztq.jpeg?q=70",
+    name:"Nokia 105 Single SIM, Keypad Mobile Phone",
+    price:"₹1,249"   
+}];
+let cart=JSON.parse(localStorage.getItem('mobilecart'))||[]
+function addtocartmob(val){
+    cart.push(mob_details[val]);
+    localStorage.setItem('mobilecart',JSON.stringify(cart));
+}
+function showcart(){
+    console.log("called")
+    document.getElementById('cartpage').innerHTML=" ";
+    let cart=JSON.parse(localStorage.getItem('mobilecart'))||[];
+    cart.forEach(function(item,index){
+        var container=document.createElement('div');
+        container.classList.add('cartsec');
+        container.setAttribute('data-ele',index)
+        // console.log(index);
+        var image=document.createElement('img');
+        image.src=item.src;
+        image.style.height="80px";
+        var title=document.createElement('h2');
+        title.textContent=item.name;
+        title.style.width="400px";
+        var amount=document.createElement('h3');
+        amount.textContent=item.price;
+        amount.style.width="200px"
+        var button=document.createElement('button');
+        button.innerHTML="Remove";
+        button.setAttribute('onclick',`removecart(${index})`);
+        button.classList.add('cartbutton');
+        var buybtn=document.createElement('button')
+        buybtn.classList.add('cartbutton');
+        buybtn.innerHTML="Buy"
+        container.appendChild(image);
+        container.appendChild(title);
+        container.appendChild(amount);
+        container.appendChild(button);
+        container.appendChild(buybtn);
+        document.getElementById('cartpage').append(container);
+        
+
+
+    });
+    // document.getElementById('cartpage').style.display="block"
+    document.getElementById('category').style.display='none';
+    document.getElementById('scrollbar_container').style.display='none';
+    document.getElementById('grid_bar').style.display='none';
+    var b=document.getElementsByClassName('description');
+    Array.from(b).forEach(function(val){
+        val.style.display='none';
+    });
+    document.getElementById('to_top').style.display='none';
+    document.getElementById('footer').style.display='none';
+    document.getElementById('footer_end').style.display='none';
+    document.getElementById('mobiles1').style.display='none';
+    document.getElementById('fashion1').style.display='none';
+
+    
+
+
+}
+function removecart(val){
+    let cart = JSON.parse(localStorage.getItem('mobilecart')) || [];
+
+    
+    if (val >= 0 && val < cart.length) {
+        cart.splice(val, 1);
+        localStorage.setItem('mobilecart', JSON.stringify(cart));
+       
+        
+    }
+    showcart();
+}
