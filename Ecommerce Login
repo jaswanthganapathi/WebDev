@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L-Cart</title>
+    <link rel="icon" href="https://www.freeiconspng.com/thumbs/cart-icon/basket-cart-icon-27.png">
+    <style>
+        body{
+            background-color: black;
+        }
+        #frontpage{
+            display: flex;
+            width: 100%;
+            height: 100vh;
+            /* justify-content: center; */
+            align-items: center;
+            justify-content: space-evenly;
+        }
+        #signin{
+            width: 30%;
+            background-color: black;
+            border-radius: 10px;
+            border: 2px solid white;
+            padding: 20px;
+            height: 55vh;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            animation-name: load;
+            animation-duration: 0.5s;
+            animation-timing-function: ease-in-out;
+            color: white;
+
+        }
+        #signup>input{
+            width: 90%;
+            color: black;
+            height: 30px;
+            border-radius: 5px;
+        }
+        #signinbutton{
+            width: 93%;
+            padding: 5px;
+            border-radius: 5px;
+            background-color:#6495ED;
+            border: none;
+            color: white;
+            height: 30px;
+        }
+        #signinupbutton{
+            width: 93%;
+            padding: 5px;
+            border-radius: 5px;
+            background-color: #6495ED;
+            color: white;
+            border: none;
+            height: 30px;
+        }
+        #signupbutton{
+            width: 93%;
+            padding: 5px;
+            border-radius: 5px;
+            background-color:#6495ED;
+            color: white;
+            border: none;
+            height: 30px;
+        }
+        #signup{
+            display: none;
+            width: 30%;
+            background-color: black;
+            border-radius: 10px;
+            border: 2px solid white;
+            padding: 20px;
+            height: 55vh;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            animation-name: load;
+            animation-duration: 0.5s;
+            animation-timing-function: ease-in-out;
+            color: white;
+            
+
+        }
+        @keyframes load {
+            from{
+                opacity: 0;
+            }
+            to{
+                opacity: 1;
+            }
+            
+        }
+        #signin>input{
+            width: 90%;
+            color: black;
+            height: 30px;
+            border-radius: 5px;
+        }
+        
+        input[type="number"]::-webkit-inner-spin-button,
+        input[type="number"]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        #signinbutton2{
+            width: 93%;
+            padding: 5px;
+            border-radius: 5px;
+            background-color: #6495ED;
+            border: none; 
+            color: white;  
+            height: 30px;
+        }
+        #forgot{
+            display: none;
+            width: 30%;
+            background-color: black;
+            border-radius: 10px;
+            border: 2px solid white;
+            padding: 20px;
+            height: 55vh;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            animation-name: load;
+            animation-duration: 0.5s;
+            animation-timing-function: ease-in-out;
+            color: white;
+        }
+        
+        #goback{
+            width: 100%;
+            padding: 5px;
+            border-radius: 5px;
+            background-color:#6495ED;
+            border: none; 
+            color: white;
+            height:30px;
+        }
+
+    </style>
+    <script>
+        var details = JSON.parse(localStorage.getItem('user')) || {};
+
+
+        
+        function getdetails(storagekey,key,expected_value){
+            console.log("enterd function");
+            const jsonstring=localStorage.getItem(storagekey);
+            if(jsonstring){
+                console.log("entered if");
+                const obj=JSON.parse(jsonstring);
+                console.log(obj[key]);
+                console.log(key);
+                return obj[key]===expected_value;
+            }
+            return false
+
+        }
+        function openSign(){
+            // event.preventDefault();
+            console.log("opened");
+            var userinfo=document.getElementsByClassName('s_in');
+            var mobile=userinfo[0].value.trim();
+            var pass=userinfo[1].value.trim();
+            if (mobile && pass){
+                if(getdetails('user',mobile,pass)){
+                    var inputs=document.getElementsByClassName('s_in');
+                    Array.from(inputs).forEach(function(item){
+                        item.value=""
+                    })
+                    var a=document.getElementById('linkto');
+                    a.setAttribute('href','ecommerce.html')
+                    document.getElementById('invalid').innerText=" ";
+                    alert("you are succesfully logged in");
+                    document.getElementById('loginbutton').style.display="block";
+                }
+                else{
+                    var inputs=document.getElementsByClassName('s_in');
+                    Array.from(inputs).forEach(function(item){
+                        item.value=""
+                    })
+                    document.getElementById('invalid').innerText="Invalid credentials"
+                }
+            }
+            else{
+                alert('enter the credentials');
+            }
+
+        }
+        function go_up(){
+            document.getElementById('signin').style.display="none";
+            document.getElementById('signup').style.display="block";
+        }
+        function up(event){
+            event.preventDefault();
+            var credentials=document.getElementsByClassName('s_up');
+            var a= credentials[0].value;
+            var b=credentials[1].value;
+            if(a && b){
+                var inputs=document.getElementsByClassName('s_up');
+                    Array.from(inputs).forEach(function(item){
+                        item.value=""
+                    })
+                details[a]=b;
+                localStorage.setItem('user',JSON.stringify(details));
+                document.getElementById('signup').style.display="none";
+                document.getElementById('signin').style.display="block";
+                alert("you are successfully registered! now you can Sign-in");
+            }
+            else{
+                
+                alert("enter mobile number and password");
+            }
+        }
+        function goto_in(){
+            document.getElementById('signin').style.display="block";
+            document.getElementById('signup').style.display="none";
+        }
+        function toforgotpass(event){
+            event.preventDefault();
+            document.getElementById('signin').style.display="none";
+            document.getElementById('forgot').style.display="block";
+        }
+        function forgotpass(event){
+            event.preventDefault();
+            var a=document.getElementById('forgotinput').value.trim();
+
+            var jsonstring=localStorage.getItem('user');
+            document.getElementById('forgotinput').value="";
+            if(jsonstring){
+                var obj=JSON.parse(jsonstring);
+                if(a in obj){
+                document.getElementById('displaypass').innerHTML= `Your Password is :  <b> ${obj[a]}</b>`;
+                }
+                else{
+                document.getElementById('displaypass').innerText="Mobile Number Not Found !";
+
+                }
+            }
+            else{
+                document.getElementById('displaypass').innerText="Mobile Number Not Found !";
+
+            }
+            
+
+        }
+        function goback(){
+            document.getElementById('signin').style.display="block";
+            document.getElementById('forgot').style.display="none";
+            document.getElementById('displaypass').innerHTML="";
+
+
+        }
+    </script>
+</head>
+<body>
+    <div id="frontpage">
+        <img id="logo" src="Mylogo.png" style="width: 40%; height: 70vh;">
+        <div id="signin">
+            <h2>Sign In</h2>
+            <label><b>Enter Your Mobile Number</b></label><br>
+            <input class="s_in" type="number" placeholder="Enter Your Mobile Number"><br><br>
+            <label><b>Enter Your Password</b></label><br>
+            <input class="s_in" type="password" placeholder="Enter Your Password"><br><br>
+            <a id="linkto"><button id="signinbutton" onclick="openSign()">Sign-in</button><br></a>
+            <p id="invalid" style="color: red;"></p>
+            <a href="" style="text-decoration: none; color: white;" onclick="toforgotpass(event)">forgot password?</a><br><br>
+            <hr style="width: 92%;color: gray; margin-left: 0;"><br><br>
+            <button id="signinupbutton" onclick="go_up()">Sign-up</button>
+            <!-- <a  style="text-decoration: none;" href="ecommerce.html"><button id="loginbutton">login</button> </a></button> -->
+        </div>
+        <div id="signup">
+            <h2>Sign Up</h2>
+            <label><b>Enter Your Mobile Number</b></label><br>
+            <input class="s_up" type="number" id="num" placeholder="Enter Your Mobile Number"><br><br>
+            <label><b>Enter Your Password</b></label><br>
+            <input class="s_up" type="password" placeholder="Enter Your Password"><br><br>
+            <button id="signupbutton" onclick="up(event)">Sign-up</button>
+            <br><br><br>
+            <hr style="width: 92%;color: gray; margin-left: 0;"><br><br><br>
+            <button id="signinbutton2" onclick="goto_in()">Sign-in</button>
+    
+        </div>
+        <div id="forgot">
+            <h2>Forgot Password</h2>
+            <label><b>Enter Your Registered Mobile Number</b> </label><br><br>
+            <input type="number" id="forgotinput" style="width: 98%;height: 30px; border-radius: 5px; color: black;" placeholder="Enter Your Registered Mobile Number"><br><br>
+            <input type="submit" onclick="forgotpass(event)" style="width: 100%; background-color: #6495ED;color:white; border: none; border-radius: 5px; padding: 5px;height: 30px;"><br><br>
+            <hr style="width: 100%;color: gray; margin-left: 0;"><br><br><br>
+            <p id="displaypass" style="color: red;"></p>
+            <button id="goback" onclick="goback()">Go Back</button>
+        </div>
+    </div>
+    
+</body>
+</html>
