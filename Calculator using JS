@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="icon" href="https://i.pinimg.com/736x/f9/9d/64/f99d64d11c2b00fddfbaee3a85545d3c.jpg">
+    <style>
+        body{
+            background-color: #6495ED;
+        }
+        #main_container{
+           width: 510px;
+           /* background-color:black; */
+           padding: 20px;
+           margin-left: auto;
+           margin-right: auto;
+           margin-top: 50px;
+           border-radius: 20px;
+           z-index: 1;
+           border: 2px dotted white;
+        }
+        #container1{
+            width: 490px;
+            border-radius: 10px;
+            height: 80px;
+            margin-top: 10px;
+            margin-bottom: 0;
+            background-color: #E1F7F5;
+            padding-left: 15px;
+            padding-top: 5px;
+            position: relative;
+        }
+        #display{
+            margin-top: 0;
+            font-size: x-large;
+            color: #26465c;
+            font-weight: 550;
+            margin-bottom: 0;
+        }
+        #answer{
+            position: absolute;
+            right: 10px;
+            margin-top: 0;
+            font-size: xx-large;
+            margin-bottom: 5px;
+        }
+        #container2{
+            display: grid;
+            grid-template-columns: 80px 80px 80px 80px 80px;
+            grid-template-rows: 60px 60px 60px 60px 60px;
+            gap: 20px;
+            padding: 10px;
+            margin-top: 10px;
+        }
+        .childenter{
+            grid-column: 4/6;
+            background-color: #0766AD;
+            opacity: 0.8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size:x-large;
+            font-weight: 650;
+            color: white;
+            font-family:monospace;
+            cursor: pointer;
+            
+        }
+        #container2>div{
+            border-radius: 10px;
+        }
+        .childsymbol{
+            background-color: #ACE2E1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size:x-large;
+            font-weight: 650;
+            color: #508C9B;
+            cursor: pointer;
+        }
+        .child{
+            background-color: #E1F7F5;
+            color: #153448;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size:x-large;
+            font-weight: 550;
+            cursor: pointer;
+        }
+        video{
+            position: absolute;
+            top: 0;
+            left: 0;
+            object-fit: cover;
+            width: 100%;
+            height: 100vh;
+            z-index: -1;
+            
+            
+        }
+        
+    </style>
+</head>
+<body>
+    <video loop  autoplay muted playsinline >
+        <source src="istockphoto-913762524-640_adpp_is.mp4" type="video/mp4">
+    </video>
+    <div id="main_container">
+        <div id="container1">
+            <p id="display"></p>
+            <h3 id="answer"></h3>
+        </div>
+        <div id="container2">
+            <div class="childsymbol" onclick="equation(event)">&#40</div>
+            <div class="childsymbol" onclick="equation(event)">&#41</div>
+            <div class="childsymbol" onclick="answer()">ans</div>
+            <div class="childsymbol" onclick="deletion()">del</div>
+            <div class="childsymbol" onclick="clearscreen()">clear</div>
+            <div class="child" onclick="equation(event)">1</div>
+            <div class="child" onclick="equation(event)">2</div>
+            <div class="child" onclick="equation(event)">3</div>
+            <div class="childsymbol" onclick="equation(event)">&#37</div>
+            <div class="childsymbol" onclick="equation(event)">&#8730</div>
+            <div class="child" onclick="equation(event)">4</div>
+            <div class="child" onclick="equation(event)">5</div>
+            <div class="child" onclick="equation(event)">6</div>
+            <div class="childsymbol" onclick="equation(event)">&#215</div>
+            <div class="childsymbol" onclick="equation(event)">&#247</div>
+            <div class="child" onclick="equation(event)">7</div>
+            <div class="child" onclick="equation(event)">8</div>
+            <div class="child" onclick="equation(event)">9</div>
+            <div class="childsymbol" onclick="equation(event)">&#43</div>
+            <div class="childsymbol" onclick="equation(event)">&#8722</div>
+            <div class="childsymbol" onclick="equation(event)">&#46</div>
+            <div class="child" onclick="equation(event)">0</div>
+            <div class="childsymbol" onclick="equation(event)">&#177</div>
+            <div class="childenter" onclick="output()">Enter</div>
+        </div>
+    </div>
+    <script>
+        var expression="";
+        count=0;
+        function equation(event){
+            var a=event.target;
+            if(count==1){
+                if(a.innerHTML==='%'||a.innerHTML==='×'||a.innerHTML==='÷'||a.innerHTML==='+'||a.innerHTML==='−'){
+                    count=0;
+                    expression+=')'+a.innerHTML;
+                }
+                else{
+                    expression+=a.innerHTML; 
+                }
+            }
+            else if(a.innerHTML==='√'){
+                count=1;
+                expression+='√('; 
+
+            }
+            else{
+                expression+=a.innerHTML; 
+            }
+            document.getElementById('display').innerText=expression;
+        }
+        function deletion(){
+            expression=expression.slice(0,expression.length-1);
+            document.getElementById('display').innerText=expression;
+            if(document.getElementById('display').innerText===""){
+                document.getElementById('answer').innerText=" "
+
+            }
+            if(expression.includes('√')){
+                count=1
+            }
+            else{
+                count=0;
+            }
+
+        }
+        function clearscreen(){
+            expression="";
+            document.getElementById('display').innerText=expression;
+            document.getElementById('answer').innerText=" "
+            count=0;
+
+
+        }
+        function output(){
+            count=0;
+            flag=0;
+            if(expression.includes('√')){
+                flag=1;
+            }
+            if(expression.includes('%') ||expression.includes('×') ||expression.includes('÷') ||expression.includes('+') ||expression.includes('−') ){
+                flag=2;
+            }
+            if(flag===1){
+                expression+=')';
+                document.getElementById('display').innerText=expression;
+            }
+            expression=expression.replace('(','(');
+            expression=expression.replace(')',')');
+            expression=expression.replace('%','/100*');
+            expression=expression.replace('√','Math.sqrt');
+            expression=expression.replace('×','*');
+            expression=expression.replace('÷','/');
+            expression=expression.replace('+','+');
+            expression=expression.replace('−','-');
+            expression=expression.replace('.','.');
+            
+            try{
+                var result = eval(expression);
+                document.getElementById('answer').innerHTML=result;
+            }
+            catch(error){
+                document.getElementById('answer').innerHTML="ERROR";
+
+            }
+            expression=expression.replace('(','(');
+            expression=expression.replace(')',')');
+            expression=expression.replace('/100*','%');
+            expression=expression.replace('Math.sqrt','√');
+            expression=expression.replace('*','×');
+            expression=expression.replace('/','÷');
+            expression=expression.replace('+','+');
+            expression=expression.replace('-','−');
+            expression=expression.replace('.','.');
+
+        }
+        function answer(){
+            count=0;
+            flag=0;
+            if(expression.includes('√')){
+                flag=1;
+            }
+            if(expression.includes('%') ||expression.includes('×') ||expression.includes('÷') ||expression.includes('+') ||expression.includes('−') ){
+                flag=2;
+            }
+            if(flag===1){
+                expression+=')';
+                document.getElementById('display').innerText=expression;
+            }
+            expression=expression.replace('(','(');
+            expression=expression.replace(')',')');
+            expression=expression.replace('%','/100*');
+            expression=expression.replace('√','Math.sqrt');
+            expression=expression.replace('×','*');
+            expression=expression.replace('÷','/');
+            expression=expression.replace('+','+');
+            expression=expression.replace('−','-');
+            expression=expression.replace('.','.');
+            
+            console.log(expression);
+            try{
+                var result = eval(expression);
+                document.getElementById('answer').innerHTML=result;
+            }
+            catch(error){
+                document.getElementById('answer').innerHTML="ERROR";
+
+            }
+            expression=expression.replace('(','(');
+            expression=expression.replace(')',')');
+            expression=expression.replace('/100*','%');
+            expression=expression.replace('Math.sqrt','√');
+            expression=expression.replace('*','×');
+            expression=expression.replace('/','÷');
+            expression=expression.replace('+','+');
+            expression=expression.replace('-','−');
+            expression=expression.replace('.','.');
+
+        }
+    </script>
+</body>
+</html>
